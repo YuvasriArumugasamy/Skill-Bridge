@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge | Master Career Roadmaps</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #05070a;
+            --primary: #6a38c2;
+            --primary-light: #8b5cf6;
+            --accent: #00f2ff;
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-hover: rgba(255, 255, 255, 0.07);
+        }
+
+     body {
+    margin: 0;
+    /* Indha image romba "busy"-ah irukkuradhala 0.9 overlay mukkiam */
+   background: linear-gradient(rgba(5, 7, 10, 0.93), rgba(5, 7, 10, 0.93)),
+            url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
+                background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+        /* Sidebar - Glass effect konjam kootirukken image theriyarathukaaga */
+        .sidebar {
+            width: 320px;
+            background: rgba(10, 12, 17, 0.7); 
+            backdrop-filter: blur(15px);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+        }
+
+        /* Roadmap cards readability-kaaga backround-ah innum solid aakiruken */
+        .step-box {
+            background: rgba(15, 20, 28, 0.8); 
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
+        }
+/* 3. Main Content - Card visibility-kaaga gradient */
+.main-content {
+    flex-grow: 1;
+    padding: 60px;
+    overflow-y: auto;
+    background: radial-gradient(circle at 50% -20%, rgba(106, 56, 194, 0.15), transparent 70%);
+    position: relative;
+}
+        
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(106, 56, 194, 0.2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+
+
+        .sidebar h2 {
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .course-list {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+
+        .course-item {
+            padding: 14px 18px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            border: 1px solid transparent;
+        }
+
+        .course-item:hover {
+            background: var(--glass-hover);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .course-item.active {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            box-shadow: 0 10px 20px rgba(106, 56, 194, 0.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 60px;
+            overflow-y: auto;
+            background: radial-gradient(circle at top right, rgba(106, 56, 194, 0.05), transparent);
+        }
+
+        .roadmap-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-header h1 span {
+            color: var(--primary);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 850px;
+            padding-left: 40px;
+            margin-top: 50px;
+            border-left: 2px solid rgba(106, 56, 194, 0.2);
+        }
+
+        .step {
+            position: relative;
+            margin-bottom: 60px;
+            animation: fadeInSlide 0.6s ease forwards;
+        }
+
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            left: -49px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--bg);
+            border: 3px solid var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .step-box {
+            background: var(--glass);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            transition: 0.3s;
+        }
+
+        .step-box:hover {
+            border-color: rgba(106, 56, 194, 0.4);
+            transform: scale(1.01);
+        }
+
+        .step-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(106, 56, 194, 0.15);
+            color: #d1b9ff;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(106, 56, 194, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 250px;
+            }
+
+            .main-content {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2>Career Paths</h2>
+        <div class="course-list" id="course-list"></div>
+    </aside>
+
+    <main class="main-content">
+        <div id="roadmap-display"></div>
+    </main>
+
+    <script>
+        const roadmapData = {
+            "Digital Marketing": [
+                { title: "SEO & Content", desc: "Google-la rank panna search engine optimization padikkanum.", tags: ["Keywords", "Backlinks"] },
+                { title: "Social Media Ads", desc: "Facebook and Instagram-la professional-ah ads run pannanum.", tags: ["Meta Ads", "Retargeting"] },
+                { title: "Analytics", desc: "Campaign performance-ah track panna karkkanum.", tags: ["GA4", "GTM"] }
+            ],
+            "Film & Video Editing": [
+                { title: "Storyboarding", desc: "Video-ku munaadi frame-by-frame plan pannanum.", tags: ["Pre-production"] },
+                { title: "Editing Tools", desc: "Professional software-la shots-ah join panna karkkanum.", tags: ["Premiere Pro", "DaVinci"] },
+                { title: "Color Grading", desc: "Video-ku cinematic look kudukka color correction pannanum.", tags: ["LUTs", "Color Wheels"] }
+            ],
+            "Finance & Accounting": [
+                { title: "Bookkeeping", desc: "Accounts-ah correct-ah maintain panna basics karkkanum.", tags: ["Tally Prime", "Ledgers"] },
+                { title: "Taxation", desc: "GST and Income Tax calculation pathi theriyanum.", tags: ["GST", "Audit"] },
+                { title: "Financial Analysis", desc: "Company-oda profit/loss balance sheet-ah analyze pannanum.", tags: ["Excel", "Ratio Analysis"] }
+            ],
+            "Graphic Designing": [
+                { title: "Visual Basics", desc: "Typography and Layout design principles padikkanum.", tags: ["Composition", "Color Theory"] },
+                { title: "Vector Graphics", desc: "Logos and Illustrations build panna karkkanum.", tags: ["Illustrator", "CorelDraw"] },
+                { title: "Manipulation", desc: "Creative-ah photos-ah edit and design pannanum.", tags: ["Photoshop", "Canva"] }
+            ],
+            "Healthcare Management": [
+                { title: "Hospital Ops", desc: "Hospital-oda day-to-day workflow-ah manage pannanum.", tags: ["Patient Flow", "Staffing"] },
+                { title: "Health Records", desc: "Digital data-va secure-ah maintain panna karkkanum.", tags: ["EHR", "HIPAA"] },
+                { title: "Quality Control", desc: "Safety standards-ah ensure panna check pannanum.", tags: ["NABH", "ISO"] }
+            ],
+            "Hospitality Management": [
+                { title: "Guest Relations", desc: "Customers-ah handle panna communication and ethics padikkanum.", tags: ["CRM", "Soft Skills"] },
+                { title: "Front Office", desc: "Check-in and reservation systems-ah manage pannanum.", tags: ["Opera", "PMS"] },
+                { title: "F&B Service", desc: "Food and Beverage operations pathi theriyanum.", tags: ["Inventory", "Hygiene"] }
+            ],
+            "Human Resource Management (HRM)": [
+                { title: "Recruitment", desc: "Sariyana candidates-ah shortlist panna karkkanum.", tags: ["Talent Acquisition", "ATS"] },
+                { title: "Payroll", desc: "Salary and benefits-ah calculate panna software use pannanum.", tags: ["PF", "ESI", "Payroll Admin"] },
+                { title: "Employee Relations", desc: "Office culture-ah build panni issues solve pannanum.", tags: ["Policy Making", "Engagement"] }
+            ],
+            "Journalism & Mass Communication": [
+                { title: "Reporting", desc: "News-ah collect panni verify panna karkkanum.", tags: ["Fact Checking", "Interviewing"] },
+                { title: "Broadcasting", desc: "Live-la news deliver panna and handle panna karkkanum.", tags: ["Radio", "TV Media"] },
+                { title: "Digital Media", desc: "Social platform-la news-ah share panna logic theriyanum.", tags: ["Copywriting", "PR"] }
+            ],
+            "Languages & Communication": [
+                { title: "Grammar & Flow", desc: "Language-la errors illama pesa and ezhutha padikkanum.", tags: ["Vocabulary", "Phonetics"] },
+                { title: "Public Speaking", desc: "Stage-la audience munaadi confidence-oda pesa karkkanum.", tags: ["Body Language", "Pitch"] },
+                { title: "Business English", desc: "Corporate-la use panra communication styles karkkanum.", tags: ["Email Etiquette", "Negotiation"] }
+            ],
+            "Photography": [
+                { title: "Camera Settings", desc: "Exposure, Shutter Speed, and ISO balance panna karkkanum.", tags: ["Manual Mode", "DSLR"] },
+                { title: "Lighting", desc: "Natural and Artificial lighting-ah use panna karkkanum.", tags: ["Softbox", "Golden Hour"] },
+                { title: "Retouching", desc: "Raw images-ah professional-ah edit pannanum.", tags: ["Lightroom", "Capture One"] }
+            ],
+            "Psychology & Counseling": [
+                { title: "Human Behavior", desc: "Manushanga yen ippadi behave panrangannu base padikkanum.", tags: ["General Psychology"] },
+                { title: "Therapy Techniques", desc: "Issues solve panna counseling methods karkkanum.", tags: ["CBT", "Humanistic"] },
+                { title: "Mental Health", desc: "Common disorders pathi and adhu-ku support panna karkkanum.", tags: ["Clinical Psych", "Wellness"] }
+            ],
+            "Real Estate Management": [
+                { title: "Property Valuation", desc: "Market value calculation and research pannanum.", tags: ["Asset Analysis"] },
+                { title: "Legal Documentation", desc: "Registration and legal paperwork pathi theriyanum.", tags: ["Patta", "Chitta", "RERA"] },
+                { title: "Sales & Marketing", desc: "Properties-ah promote panni sell panna karkkanum.", tags: ["Leasing", "Brokerage"] }
+            ],
+            "Supply Chain & Logistics": [
+                { title: "Inventory", desc: "Stock-ah correct-ah manage panna software use pannanum.", tags: ["WMS", "Stock Keeping"] },
+                { title: "Freight & Shipping", desc: "Goods-ah transport panna routes and methods plan pannanum.", tags: ["Shipping", "Customs"] },
+                { title: "Procurement", desc: "Best vendors-ah find panni materials buy panna karkkanum.", tags: ["Vendor Mgmt", "Sourcing"] }
+            ],
+            "Teaching & Education Training": [
+                { title: "Pedagogy", desc: "Students-ku puriyura maari nadatha techniques padikkanum.", tags: ["Child Psychology"] },
+                { title: "Curriculum Design", desc: "Syllabus and lessons-ah plan panna karkkanum.", tags: ["Lesson Plan", "LMS"] },
+                { title: "Classroom Mgmt", desc: "Students-ah engage panna and discipline handle pannanum.", tags: ["Soft Skills", "Mentoring"] }
+            ],
+            // Previous coding courses automatically stay here if you want...
+            "Full Stack Development": [
+                { title: "Frontend", desc: "User interface build panna karkkanum.", tags: ["React", "Tailwind"] },
+                { title: "Backend", desc: "Server side logic and APIs create pannanum.", tags: ["Node.js", "Express"] },
+                { title: "Database", desc: "Data storage and management.", tags: ["MongoDB", "SQL"] }
+            ]
+        };
+
+        const listContainer = document.getElementById('course-list');
+        const display = document.getElementById('roadmap-display');
+
+        function loadRoadmap(course) {
+            let stepsHTML = roadmapData[course].map((step, index) => `
+                <div class="step">
+                    <div class="step-box">
+                        <h3>0${index + 1}. ${step.title}</h3>
+                        <p>${step.desc}</p>
+                        <div class="tags">${step.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            display.innerHTML = `
+                <div class="roadmap-header">
+                    <h1>${course} <span>Roadmap</span></h1>
+                </div>
+                <div class="timeline">${stepsHTML}</div>
+            `;
+        }
+
+        Object.keys(roadmapData).forEach((course, index) => {
+            const item = document.createElement('div');
+            item.className = `course-item ${index === 0 ? 'active' : ''}`;
+            item.innerText = course;
+            item.onclick = () => {
+                document.querySelectorAll('.course-item').forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+                loadRoadmap(course);
+            };
+            listContainer.appendChild(item);
+        });
+
+        loadRoadmap(Object.keys(roadmapData)[0]);
+    </script>
+</body>
+
+</html>

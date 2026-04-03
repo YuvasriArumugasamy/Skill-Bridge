@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillBridge | Career Roadmaps</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #05070a;
+            --primary: #6a38c2;
+            --accent: #00f2ff;
+            --text-sub: #94a3b8;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
+       body {
+    margin: 0;
+
+    background: linear-gradient(rgba(5, 7, 10, 0.93), rgba(5, 7, 10, 0.93)),
+                url('https://images.unsplash.com/photo-1519389950473-47ba0277781c');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+        /* Sidebar - Course List */
+         .sidebar {
+            width: 320px;
+            background: rgba(10, 12, 17, 0.7); 
+            backdrop-filter: blur(15px);
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            padding: 30px 20px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .course-list {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 10px;
+        }
+
+        .course-item {
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            border: 1px solid transparent;
+        }
+
+        .course-item:hover {
+            background: rgba(106, 56, 194, 0.1);
+            color: white;
+        }
+
+        .course-item.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(106, 56, 194, 0.3);
+        }
+
+        /* Main Content - Roadmap View */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .roadmap-header {
+            margin-bottom: 40px;
+        }
+
+        .roadmap-header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .roadmap-header h1 span { color: var(--primary); }
+
+        /* Timeline Design */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            padding-left: 30px;
+            border-left: 2px solid rgba(106, 56, 194, 0.2);
+        }
+
+        .step {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            left: -41px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg);
+            border: 3px solid var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .step-box {
+            background: var(--glass);
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .step-box h3 {
+            margin: 0 0 10px 0;
+            color: var(--accent);
+        }
+
+        .step-box p {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .tags {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(0, 242, 255, 0.05);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+        }
+
+        /* Mobile View */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: 200px; }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>Career Paths</h2>
+        <div class="course-list" id="course-list">
+            </div>
+    </aside>
+
+    <main class="main-content">
+        <div id="roadmap-display">
+            </div>
+    </main>
+
+    <script>
+        const roadmapData = {
+    "Artificial Intelligence (AI)": [
+        { title: "Maths & Logic", desc: "AI-ku base Linear Algebra, Calculus, and Probability thaan. Itha first clear-ah purinjukanum.", tags: ["Calculus", "Statistics"] },
+        { title: "Python for AI", desc: "AI libraries handle panna Python master pannanum.", tags: ["NumPy", "Pandas", "Matplotlib"] },
+        { title: "Neural Networks", desc: "Human brain maari work aagura Deep Learning models build panna karkkanum.", tags: ["PyTorch", "TensorFlow"] }
+    ],
+    "Big Data Engineering": [
+        { title: "Data Processing", desc: "Large datasets-ah handle panna distributed computing karkkanum.", tags: ["Apache Spark", "Hadoop"] },
+        { title: "ETL Pipelines", desc: "Data-va extract, transform, and load panna karkkanum.", tags: ["Airflow", "Kafka"] },
+        { title: "NoSQL Databases", desc: "Structured illatha data-va store panna karkkanum.", tags: ["MongoDB", "Cassandra"] }
+    ],
+    "Blockchain Development": [
+        { title: "Cryptography", desc: "Blockchain-oda security base-ah purinjukanum.", tags: ["Hashing", "Digital Signatures"] },
+        { title: "Smart Contracts", desc: "Automated agreements build panna coding karkkanum.", tags: ["Solidity", "Rust"] },
+        { title: "DApps", desc: "Decentralized applications build panna karkkanum.", tags: ["Ether.js", "Web3.js"] }
+    ],
+    "Cloud Computing": [
+        { title: "Cloud Fundamentals", desc: "Cloud providers and service models (IaaS, PaaS) pathi theriyanum.", tags: ["AWS", "Azure", "GCP"] },
+        { title: "Serverless & Storage", desc: "Servers illama code run panna and data store panna karkkanum.", tags: ["Lambda", "S3 Bucket"] },
+        { title: "Cloud Security", desc: "Identity and Access Management (IAM) master pannanum.", tags: ["IAM", "VPC"] }
+    ],
+    "Computer Networking": [
+        { title: "Network Models", desc: "Data epdi travel aaguthunu purinjukanum.", tags: ["OSI Model", "TCP/IP"] },
+        { title: "Routing & Switching", desc: "Devices-ah connect panna and traffic control panna karkkanum.", tags: ["Cisco Packet Tracer", "VLAN"] },
+        { title: "Network Security", desc: "Firewalls and VPNs set panna karkkanum.", tags: ["IPSec", "Firewall Config"] }
+    ],
+    "Cybersecurity": [
+        { title: "Networking Basics", desc: "Security start pannum munaadi network flow theriyanum.", tags: ["Wireshark", "Nmap"] },
+        { title: "Ethical Hacking", desc: "Vulnerabilities find panni systems-ah secure panna karkkanum.", tags: ["Metasploit", "Burp Suite"] },
+        { title: "Incident Response", desc: "Attack nadandha adha epdi handle panna-num nu theriyanum.", tags: ["SIEM", "Digital Forensics"] }
+    ],
+    "Data Analytics": [
+        { title: "Excel & SQL", desc: "Data-va filter panni analysis panna basics idhu thaan.", tags: ["Advanced Excel", "SQL Queries"] },
+        { title: "Data Visualization", desc: "Data-va charts and dashboards-ah matha karkkanum.", tags: ["Tableau", "Power BI"] },
+        { title: "Statistical Analysis", desc: "Patterns and trends find panna karkkanum.", tags: ["R Programming", "Hypothesis Testing"] }
+    ],
+    "Data Science": [
+        { title: "Python & Statistics", desc: "Data-va clean panna and analyze panna karkkanum.", tags: ["Pandas", "Scikit-Learn"] },
+        { title: "Machine Learning", desc: "Data-va vechi future-ah predict panna models build pannanum.", tags: ["Regression", "Clustering"] },
+        { title: "Model Deployment", desc: "Ready panna model-ah live application-ku kondu varanum.", tags: ["Flask", "Docker"] }
+    ],
+    "Database Administration (DBA)": [
+        { title: "Relational DB", desc: "Structured data-va manage and optimize panna karkkanum.", tags: ["MySQL", "PostgreSQL"] },
+        { title: "Backup & Recovery", desc: "Data loss aagama irukka regular backups and security handle pannanum.", tags: ["Replication", "Sharding"] },
+        { title: "Performance Tuning", desc: "Queries-ah fast-ah run aaga vekka optimization karkkanum.", tags: ["Indexing", "Execution Plan"] }
+    ],
+    "DevOps Engineering": [
+        { title: "Version Control", desc: "Code-ah manage panna Git and GitHub master pannanum.", tags: ["Git", "GitHub Actions"] },
+        { title: "Containerization", desc: "Applications-ah isolat panni run panna karkkanum.", tags: ["Docker", "Kubernetes"] },
+        { title: "CI/CD Pipeline", desc: "Coding to Deployment automation karkkanum.", tags: ["Jenkins", "Terraform"] }
+    ],
+    "Ethical Hacking": [
+        { title: "Footprinting", desc: "Target pathina information collect panna karkkanum.", tags: ["Reconnaissance", "Social Engineering"] },
+        { title: "System Hacking", desc: "Passwords and access-ah bypass panna karkkanum.", tags: ["Privilege Escalation", "Malware"] },
+        { title: "Web App Security", desc: "Websites-la irukka loopholes-ah find pannanum.", tags: ["SQL Injection", "XSS Attack"] }
+    ],
+    "Full Stack Development": [
+        { title: "Frontend", desc: "User interface build panna karkkanum.", tags: ["React", "Tailwind CSS"] },
+        { title: "Backend", desc: "Server side logic and APIs create pannanum.", tags: ["Node.js", "Express"] },
+        { title: "Full Deployment", desc: "Project-ah web-la live kondu varanum.", tags: ["Vercel", "Render", "AWS"] }
+    ],
+    "Game Development": [
+        { title: "Game Physics", desc: "Objects real world maari move aaga physics engine theriyanum.", tags: ["Unity", "C# Programming"] },
+        { title: "3D Modeling", desc: "Characters and environment design panna karkkanum.", tags: ["Blender", "Unreal Engine"] },
+        { title: "Multiplayer Logic", desc: "Online-la connect aagi play panna logic set pannanum.", tags: ["Photon", "WebSockets"] }
+    ],
+    "Internet of Things (IoT)": [
+        { title: "Hardware Basics", desc: "Sensors and Controllers (Arduino/Raspberry Pi) connect pannanum.", tags: ["Circuit Design", "Microcontrollers"] },
+        { title: "Connectivity", desc: "Devices-ah internet kooda connect panna protocols padikkanum.", tags: ["MQTT", "LoRaWAN"] },
+        { title: "IoT Cloud", desc: "Sensor data-va cloud-la store panni analyze pannanum.", tags: ["AWS IoT Core", "Blynk"] }
+    ],
+    "Machine Learning": [
+        { title: "Supervised Learning", desc: "Labelled data vechi train panna karkkanum.", tags: ["Linear Regression", "SVM"] },
+        { title: "Unsupervised Learning", desc: "Data-kulla irukka hidden patterns find pannanum.", tags: ["K-Means", "PCA"] },
+        { title: "Model Evaluation", desc: "Accuracy-ah check panni model-ah tune pannanum.", tags: ["F1-Score", "Confusion Matrix"] }
+    ],
+    "Mobile App Development": [
+        { title: "Cross-Platform", desc: "Single code-la Android and iOS apps build pannanum.", tags: ["Flutter", "React Native"] },
+        { title: "Native Basics", desc: "Device specific features-ah handle panna karkkanum.", tags: ["Kotlin", "Swift"] },
+        { title: "App Store Ops", desc: "Google Play and Apple App Store-la publish pannanum.", tags: ["Firebase", "Fastlane"] }
+    ],
+    "Software Engineering": [
+        { title: "SDLC", desc: "Software build panna follow panna vendiya steps (Agile/Scrum).", tags: ["Requirements", "System Design"] },
+        { title: "Algorithms", desc: "Logic build panna Data Structures master pannanum.", tags: ["Arrays", "Sorting", "Trees"] },
+        { title: "Code Quality", desc: "Clean and maintainable code ezhutha karkkanum.", tags: ["SOLID Principles", "Design Patterns"] }
+    ],
+    "Software Testing (QA)": [
+        { title: "Manual Testing", desc: "Step-by-step bugs and issues-ah find pannanum.", tags: ["Test Cases", "Bug Tracking"] },
+        { title: "Automation Testing", desc: "Coding vechi automated-ah test panna karkkanum.", tags: ["Selenium", "Playwright"] },
+        { title: "Performance Testing", desc: "App-oda load and speed check pannanum.", tags: ["JMeter", "LoadRunner"] }
+    ],
+    "UI / UX Design": [
+        { title: "User Research", desc: "Users-ku enna venum nu purinjukanum.", tags: ["User Persona", "Journey Mapping"] },
+        { title: "Visual Design", desc: "Buttons, Colors and Typography choice-ah master pannanum.", tags: ["Figma", "Design Systems"] },
+        { title: "Handoff", desc: "Design-ah developers-ku puriyura maari ready pannanum.", tags: ["Zeplin", "Dev-mode"] }
+    ],
+    "Web Development": [
+        { title: "Core Web", desc: "Website-oda skeleton and style ready pannanum.", tags: ["HTML5", "CSS3", "JavaScript"] },
+        { title: "Responsive Design", desc: "Mobile and Desktop-la sariya theriyura maari design pannanum.", tags: ["Bootstrap", "Media Queries"] },
+        { title: "Hosting & SEO", desc: "Site-ah web-la live kondu vanthu Google-la rank panna vekka-num.", tags: ["Netlify", "SEO Basics"] }
+    ]
+};
+
+        const listContainer = document.getElementById('course-list');
+        const display = document.getElementById('roadmap-display');
+
+        // Initial Load
+        function loadRoadmap(course) {
+            let stepsHTML = roadmapData[course].map((step, index) => `
+                <div class="step">
+                    <div class="step-box">
+                        <h3>0${index + 1}. ${step.title}</h3>
+                        <p>${step.desc}</p>
+                        <div class="tags">${step.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            display.innerHTML = `
+                <div class="roadmap-header">
+                    <h1>${course.split(' ')[0]} <span>Roadmap</span></h1>
+                </div>
+                <div class="timeline">${stepsHTML}</div>
+            `;
+        }
+
+        // Generate Sidebar
+        Object.keys(roadmapData).forEach((course, index) => {
+            const item = document.createElement('div');
+            item.className = `course-item ${index === 0 ? 'active' : ''}`;
+            item.innerText = course;
+            item.onclick = () => {
+                document.querySelectorAll('.course-item').forEach(el => el.classList.remove('active'));
+                item.classList.add('active');
+                loadRoadmap(course);
+            };
+            listContainer.appendChild(item);
+        });
+
+        // Default Load
+        loadRoadmap(Object.keys(roadmapData)[0]);
+    </script>
+</body>
+</html>

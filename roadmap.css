@@ -1,0 +1,185 @@
+:root {
+    --bg-color: #05070a;
+    --neon-blue: #00f2ff;
+    --neon-purple: #bc13fe;
+    --text-gray: #94a3b8;
+}
+
+.roadmap-fullstack {
+    background-color: var(--bg-color);
+    padding: 80px 20px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Horizontal scroll thavirkka */
+}
+
+.container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 80px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.roadmap-grid {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Connection SVG (Desktop only logic) */
+.connection-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.path-line {
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 4s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+/* Card Styling */
+.card {
+    width: 44%; /* Desktop-la 44% width */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+    transition: 0.4s;
+    box-sizing: border-box;
+}
+
+.card.left { align-self: flex-start; text-align: right; }
+.card.right { align-self: flex-end; text-align: left; }
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+}
+
+.card.active {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 25px rgba(188, 19, 254, 0.2);
+}
+
+/* Internal Content */
+.card-number {
+    position: absolute;
+    font-size: 4rem;
+    font-weight: 900;
+    opacity: 0.05;
+    top: 5px;
+}
+.left .card-number { right: 20px; }
+.right .card-number { left: 20px; }
+
+.tags { display: flex; gap: 8px; margin-bottom: 12px; justify-content: inherit; }
+.tag {
+    font-size: 0.7rem; padding: 4px 10px; border-radius: 50px;
+    background: rgba(255, 255, 255, 0.1); font-weight: bold;
+}
+
+.blue { color: var(--neon-blue); }
+.purple { color: var(--neon-purple); }
+.green { color: #00ff88; } /* Color missing-nu add panniruken */
+.cyan { color: #00d4ff; }
+.orange { color: #ff8c00; }
+
+.status-badge {
+    background: var(--neon-purple); font-size: 0.6rem;
+    padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px;
+}
+
+/* --- PERFECT MOBILE RESPONSIVE LOGIC --- */
+/* --- IMPROVED MOBILE RESPONSIVE LOGIC --- */
+@media (max-width: 850px) {
+    /* Main section padding-ah kuraikkanum mobile-ku */
+    .roadmap-fullstack {
+        padding: 40px 15px;
+    }
+
+    /* Connection SVG hide panniyachu */
+    .connection-svg { 
+        display: none; 
+    }
+
+    /* Grid layout fix */
+    .roadmap-grid {
+        gap: 30px;
+        padding-left: 25px; /* Left side line-kaga space */
+        margin-left: 5px;
+        border-left: 2px solid rgba(0, 242, 255, 0.3); /* Dotted-ku bathila solid line visibility tharum */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Card sizing and visibility */
+    .card { 
+        width: 100%; /* Direct-ah 100% kudunga */
+        max-width: 100%;
+        text-align: left !important; 
+        align-self: flex-start !important; 
+        padding: 20px;
+        box-sizing: border-box; /* Padding box-ah thandama irukka */
+        background: rgba(255, 255, 255, 0.05); /* Visibility-kaga background increase panniruken */
+    }
+
+    /* Connection Dots (Circles on the line) */
+    .card::before {
+        content: '';
+        position: absolute;
+        left: -32px; /* Line mela sariya ukkara fix */
+        top: 30px;
+        width: 14px;
+        height: 14px;
+        background: var(--bg-color);
+        border: 2px solid var(--neon-blue);
+        border-radius: 50%;
+        z-index: 5;
+        box-shadow: 0 0 10px var(--neon-blue);
+    }
+
+    .card.active::before {
+        border-color: var(--neon-purple);
+        box-shadow: 0 0 10px var(--neon-purple);
+    }
+
+    /* Content Visibility fix */
+    .card-number { 
+        font-size: 2.5rem;
+        opacity: 0.1; /* Konjam opacity ethuna thaan theryum */
+        left: auto !important; 
+        right: 15px !important; /* Content-ah maraikama irukka right side move panniruken */
+        top: 10px;
+    }
+
+    .tags { 
+        justify-content: flex-start !important; 
+        flex-wrap: wrap; /* Tags mobile-la next line varrathuku */
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+        line-height: 1.3;
+    }
+}

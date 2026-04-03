@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Skill Bridge | Digital Talent Platform</title>
+  </head>
+  <body>
+    <div id="chat-icon-wrapper" onclick="toggleChatWindow()">
+    <i class="ri-robot-2-line"></i>
+</div>
+
+<div id="chatbot-window">
+    <iframe src="chatbot.html" frameborder="0" id="chat-frame"></iframe>
+</div>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#" class="logo">Skill<span>Bridge</span></a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Our Path</a></li>
+        <li><a href="#internships">Internships</a></li>
+        <li><a href="#mentors">Mentors</a></li>
+        <li><button class="btn"><a href="apply.html">Apply Now</a></button></li>
+      </ul>
+    </nav>
+ 
+<div id="chat-trigger" onclick="toggleChat()">
+    <i class="ri-robot-2-line"></i>
+</div>
+
+ 
+
+    <header class="section__container header__container" id="home">
+      <img src="assets/google.png" alt="partner" />
+      <img src="assets/twitter.png" alt="partner" />
+      <img src="assets/amazon.png" alt="partner" />
+      <img src="assets/figma.png" alt="partner" />
+      <img src="assets/linkedin.png" alt="partner" />
+      <img src="assets/microsoft.png" alt="partner" />
+      
+      <h2>
+        <img src="assets/bag.png" alt="bag" />
+        Bridging the Gap Between Learning & Industry
+      </h2>
+      <h1>Elevate Your Career with<br /><span>Digital Internships</span></h1>
+      <p>
+        Skill Bridge helps students and freshers land high-impact internships. 
+        Gain real-world experience, mentorship, and industry-recognized certificates.
+      </p>
+      <div class="header__btns">
+        <button class="btn">Explore Domains</button>
+        <a href="#">
+          <span><i class="ri-play-fill"></i></span>
+          How it Works?
+        </a>
+      </div>
+    </header>
+
+    <section class="steps" id="about">
+      <div class="section__container steps__container">
+        <h2 class="section__header">
+          Your Journey to <span>Professional Success</span>
+        </h2>
+        <div class="steps__grid">
+          <div class="steps__card">
+            <span><i class="ri-user-add-line"></i></span>
+            <h4>Register Profile</h4>
+            <p>Showcase your skills and academic projects to top companies.</p>
+          </div>
+          <div class="steps__card">
+            <span><i class="ri-search-eye-line"></i></span>
+            <h4>Pick a Domain</h4>
+            <p>Choose from Web Dev, UI/UX, Data Science, and more.</p>
+          </div>
+          <div class="steps__card">
+            <span><i class="ri-code-s-slash-line"></i></span>
+            <h4>Real-time Projects</h4>
+            <p>Work on actual industry problems under expert guidance.</p>
+          </div>
+          <div class="steps__card">
+            <span><i class="ri-medal-line"></i></span>
+            <h4>Get Certified</h4>
+            <p>Complete the internship and receive a valid career credential.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container job__container" id="internships">
+  <h2 class="section__header"><span>Featured</span> Internships</h2>
+  <div class="job__grid">
+    
+    <div class="job__card">
+      <div class="job__card__header">
+        <img src="assets/amazon.png" alt="amazon" />
+        <div><h5>Amazon</h5><h6>Remote</h6></div>
+      </div>
+      <h4>Front-end Intern (React)</h4>
+      <p>Work on scalable UI components and learn professional Redux workflows.</p>
+      <div class="job__card__footer">
+        <span>3 Months</span><span>Paid</span><span>Certificate</span>
+      </div>
+    </div>
+
+    <div class="job__card">
+      <div class="job__card__header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Zoho_Corporation_Logo.png" style="width: 40px; height: auto;" alt="zoho" />
+        <div><h5>Zoho</h5><h6>Tenkasi / Remote</h6></div>
+      </div>
+      <h4>Full Stack Developer Intern</h4>
+      <p>Build enterprise-level applications using Zoho Creator, Deluge, and Node.js.</p>
+      <div class="job__card__footer">
+        <span>6 Months</span><span>Stipend</span><span>L.O.R</span>
+      </div>
+    </div>
+
+    <div class="job__card">
+      <div class="job__card__header">
+        <img src="assets/microsoft.png" alt="microsoft" />
+        <div><h5>Microsoft</h5><h6>Hybrid</h6></div>
+      </div>
+      <h4>Software Engineering Intern</h4>
+      <p>Analyze cloud infrastructures and contribute to Azure-based services.</p>
+      <div class="job__card__footer">
+        <span>3 Months</span><span>Paid</span><span>Placement offer</span>
+      </div>
+    </div>
+
+    <div class="job__card">
+      <div class="job__card__header">
+        <img src="assets/figma.png" alt="figma" />
+        <div><h5>Figma</h5><h6>Hybrid</h6></div>
+      </div>
+      <h4>UI/UX Design Intern</h4>
+      <p>Collaborate on user research and create high-fidelity prototypes.</p>
+      <div class="job__card__footer">
+        <span>6 Months</span><span>Stipend</span><span>Certificate</span>
+      </div>
+    </div>
+
+    <div class="job__card">
+      <div class="job__card__header">
+        <img src="assets/google.png" alt="google" />
+        <div><h5>Google</h5><h6>Remote</h6></div>
+      </div>
+      <h4>Data Analytics Intern</h4>
+      <p>Process large datasets and generate business insights using BigQuery.</p>
+      <div class="job__card__footer">
+        <span>4 Months</span><span>Stipend</span><span>Mentorship</span>
+      </div>
+    </div>
+
+    <div class="job__card">
+      <div class="job__card__header">
+        <img src="https://cdn-icons-png.flaticon.com/512/606/606201.png" style="width: 40px;" alt="agency" />
+        <div><h5>DevAgency</h5><h6>Remote</h6></div>
+      </div>
+      <h4>Junior React Developer</h4>
+      <p>Perfect for freshers to master Tailwind CSS and API integrations.</p>
+      <div class="job__card__footer">
+        <span>3 Months</span><span>Unpaid</span><span>Certificate</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section class="section__container stats__container">
+      <div class="stats__grid">
+        <div class="stats__card">
+          <h4>10K+</h4>
+          <p>Active Interns</p>
+        </div>
+        <div class="stats__card">
+          <h4>500+</h4>
+          <p>Hiring Partners</p>
+        </div>
+        <div class="stats__card">
+          <h4>95%</h4>
+          <p>Placement Success</p>
+        </div>
+        <div class="stats__card">
+          <h4>24/7</h4>
+          <p>Mentor Support</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section__container mentor__container" id="mentors">
+  <h2 class="section__header">Learn from <span>Industry Experts</span></h2>
+  <p class="section__description">
+    Get mentored by professionals working in top tech giants like Zoho, Google, and Amazon.
+  </p>
+  <div class="mentor__grid">
+    
+    <div class="mentor__card">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop" alt="Arjun Vidhya" />
+      <h4>Arjun Vidhya</h4>
+      <p>Senior Dev at Zoho</p>
+      <div class="mentor__socials">
+        <span><i class="ri-linkedin-fill"></i></span>
+        <span><i class="ri-twitter-fill"></i></span>
+      </div>
+    </div>
+
+    <div class="mentor__card">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&h=200&auto=format&fit=crop" alt="Priya Sharma" />
+      <h4>Priya Sharma</h4>
+      <p>UI/UX Lead at Google</p>
+      <div class="mentor__socials">
+        <span><i class="ri-linkedin-fill"></i></span>
+        <span><i class="ri-twitter-fill"></i></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section class="section__container features__container">
+      <div class="features__content">
+        <h2 class="section__header" style="text-align: center;">
+          Why <span>Skill Bridge?</span>
+        </h2>
+        <div class="features__grid_new">
+            <div class="feature__item">
+                <span><i class="ri-checkbox-circle-fill" style="color: #6a38c2;"></i></span>
+                <div><h4>Hands-on Training</h4><p>Work on live repositories and real deployment environments.</p></div>
+            </div>
+            <div class="feature__item">
+                <span><i class="ri-checkbox-circle-fill" style="color: #6a38c2;"></i></span>
+                <div><h4>L.O.R & Certification</h4><p>Earn industry credentials and letters of recommendation.</p></div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <div class="footer__logo">
+            <a href="#" class="logo">Skill<span>Bridge</span></a>
+          </div>
+          <p>Empowering the next generation of digital talent through quality internships and hands-on training.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Domains</h4>
+          <ul class="footer__links">
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">App Development</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+            <li><a href="#">UI/UX Design</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Support</h4>
+          <ul class="footer__links">
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2026 Skill Bridge. Built for Digital Talent.
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

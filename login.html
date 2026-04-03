@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Login | Internship Portal</title>
+<link rel="icon" href="internship1-removebg-preview.png">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:url('assets/ChatGPT Image Feb 13, 2026, 04_39_13 PM.png');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Fade animation */
+.container{
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform: translateY(20px);}
+    to{opacity:1; transform: translateY(0);}
+}
+
+.login-box{
+    background:#fff;
+    width:420px;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+.portal-title{
+    color:black;
+    position:absolute;
+    top:20px;
+    font-size:28px;
+    font-weight:600;
+}
+
+.login-box h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.login-box p{
+    color:#777;
+    margin-bottom:30px;
+}
+
+.input-group{
+    margin-bottom:20px;
+    position:relative;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px 14px 14px 45px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.input-group i{
+    position:absolute;
+    top:50%;
+    left:15px;
+    transform:translateY(-50%);
+    font-size:18px;
+    color:#777;
+}
+
+.forgot{
+    text-align:right;
+    margin-bottom:20px;
+}
+
+.forgot a{
+    color:#2563eb;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.login-btn{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:#fff;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#1e4fd1;
+}
+
+.register{
+    margin-top:25px;
+    font-size:14px;
+}
+
+.register a{
+    color:#2563eb;
+    font-weight:600;
+   
+}
+.line-text{
+    display:flex;
+    align-items:center;
+    text-align:center;
+    color:#777;
+    margin:20px 0;
+}
+
+.line-text::before,
+.line-text::after{
+    content:"";
+    flex:1;
+    border-bottom:1px solid #ccc;
+}
+
+.line-text::before{
+    margin-right:10px;
+}
+
+.line-text::after{
+    margin-left:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="portal-title">💼 Internship Portal</div>
+<br>
+<div class="container">
+    <div class="login-box">
+        <h1>Student Login</h1>
+        <p>Login to your account</p>
+
+        <div class="input-group">
+            <i>👤</i>
+            <input type="email" id="email" placeholder="Email">
+        </div>
+
+        <div class="input-group">
+            <i>🔒</i>
+            <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <div class="forgot">
+            <a href="#">Forgot Password?</a>
+        </div>
+
+        <button class="login-btn" onclick="login()">Login</button>
+
+        <div class="register">
+          <div class="line-text"> Don't have an account?</div> <br>
+            <a href="register.html">Register Here</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    
+
+
+function login(){
+    let emailInput = document.getElementById("email");
+    let passwordInput = document.getElementById("password");
+
+    let email = emailInput.value.trim();
+    let password = passwordInput.value.trim();
+
+    if(email === "" || password === ""){
+        alert("Please enter Email and Password!");
+    } else {
+        alert("Login Successful");
+        emailInput.value = "";
+        passwordInput.value = "";
+    }
+}
+</script>
+
+<script>
+        function login(){
+            let emailInput = document.getElementById("email");
+            let passwordInput = document.getElementById("password");
+
+            let email = emailInput.value.trim();
+            let password = passwordInput.value.trim();
+
+            if(email === "" || password === ""){
+                alert("Please enter Email and Password!");
+            } else {
+                alert("Login Successful! Redirecting to Home Page...");
+                
+                // Index page-ku redirect aagum
+                window.location.href = "index.html"; 
+            }
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>

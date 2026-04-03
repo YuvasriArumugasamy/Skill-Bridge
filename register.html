@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Registration | Internship Portal</title>
+<link rel="icon" href="internship1-removebg-preview.png">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    min-height:130vh;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Fade animation */
+.container{
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.portal-title{
+    position:absolute;
+    top:40px;
+    color:#fff;
+    font-size:22px;
+    font-weight:600;
+}
+
+.register-box{
+    background:#fff;
+    width:460px;
+    padding:35px;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+.register-box h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.register-box p{
+    color:#777;
+    margin-bottom:30px;
+}
+
+.input-group{
+    margin-bottom:18px;
+    position:relative;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px 14px 14px 45px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+}
+
+.input-group i{
+    position:absolute;
+    top:50%;
+    left:15px;
+    transform:translateY(-50%);
+    font-size:18px;
+    color:#777;
+}
+
+.register-btn{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:#fff;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+.register-btn:hover{
+    background:#1e4fd1;
+}
+
+/* divider */
+.line-text{
+    display:flex;
+    align-items:center;
+    color:#777;
+    margin:25px 0 10px;
+    font-size:14px;
+}
+
+.line-text::before,
+.line-text::after{
+    content:"";
+    flex:1;
+    border-bottom:1px solid #ccc;
+}
+
+.line-text::before{ margin-right:10px; }
+.line-text::after{ margin-left:10px; }
+
+.login-link a{
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="portal-title">💼 Internship Portal</div>
+
+<div class="container">
+    <div class="register-box">
+        <h1>Student Registration</h1>
+        <p>Create your account</p>
+
+        <div class="input-group">
+            <i>👤</i>
+            <input type="text" id="name" placeholder="Full Name">
+        </div>
+
+        <div class="input-group">
+            <i>📧</i>
+            <input type="email" id="email" placeholder="Email">
+        </div>
+
+        <div class="input-group">
+            <i>📱</i>
+            <input type="text" id="phone" placeholder="Phone Number">
+        </div>
+
+        <div class="input-group">
+            <i>🔒</i>
+            <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <div class="input-group">
+            <i>🔒</i>
+            <input type="password" id="confirm" placeholder="Confirm Password">
+        </div>
+
+        <button class="register-btn" onclick="register()">Register</button>
+
+        <div class="line-text">Already have an account?</div>
+
+        <div class="login-link">
+            <a href="#">Login Here</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function register(){
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let confirm = document.getElementById("confirm").value.trim();
+
+    if(name=="" || email=="" || phone=="" || password=="" || confirm==""){
+        alert("Please fill all the fields!");
+        return;
+    }
+
+    if(password !== confirm){
+        alert("Password and Confirm Password do not match!");
+        return;
+    }
+
+    alert("Registration Successful");
+}
+</script>
+
+</body>
+</html>
